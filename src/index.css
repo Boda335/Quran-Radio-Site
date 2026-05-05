@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Quran Radio — spiritual dark navy + gold theme. All colors in HSL. */
+
+@layer base {
+  :root {
+    /* Surfaces */
+    --background: 222 47% 5%;          /* #020617 deep dark blue */
+    --foreground: 220 13% 91%;         /* #e5e7eb */
+
+    --card: 222 47% 11%;               /* #0f172a dark navy */
+    --card-foreground: 220 13% 91%;
+
+    --popover: 222 47% 8%;
+    --popover-foreground: 220 13% 91%;
+
+    /* Gold accent */
+    --primary: 48 96% 53%;             /* #facc15 */
+    --primary-foreground: 222 47% 8%;
+    --primary-glow: 48 96% 65%;
+    --primary-soft: 48 96% 53%;        /* used with /15 alpha */
+
+    --secondary: 222 47% 14%;
+    --secondary-foreground: 220 13% 91%;
+
+    --muted: 222 40% 13%;
+    --muted-foreground: 215 20% 65%;   /* #94a3b8 */
+
+    --accent: 48 96% 53%;
+    --accent-foreground: 222 47% 8%;
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 210 40% 98%;
+
+    --success: 142 70% 45%;
+    --warning: 38 92% 55%;
+
+    --border: 48 96% 53%;              /* used with /20 alpha via class */
+    --input: 222 40% 18%;
+    --ring: 48 96% 53%;
+
+    --radius: 0.875rem;
+
+    /* Gradients & shadows */
+    --gradient-hero: radial-gradient(ellipse at top, hsl(222 47% 14% / 0.9), hsl(222 47% 5%) 70%);
+    --gradient-gold: linear-gradient(135deg, hsl(48 96% 53%), hsl(42 90% 48%));
+    --gradient-radial: radial-gradient(circle at center, hsl(48 96% 53% / 0.08), transparent 70%);
+
+    --shadow-glow: 0 0 60px hsl(48 96% 53% / 0.18);
+    --shadow-glow-strong: 0 0 80px hsl(48 96% 53% / 0.35);
+    --shadow-card: 0 8px 30px -8px hsl(222 60% 2% / 0.6);
+
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* ============= Theme variants (data-theme on <html>) ============= */
+  /* Each theme overrides background + accent tokens. Defaults above = "gold-night". */
+
+  [data-theme="emerald-night"] {
+    --background: 160 60% 4%;
+    --card: 158 50% 9%;
+    --popover: 158 50% 7%;
+    --secondary: 158 45% 12%;
+    --muted: 158 40% 11%;
+    --input: 158 40% 16%;
+
+    --primary: 158 75% 42%;          /* #10b981 */
+    --primary-foreground: 160 60% 6%;
+    --primary-glow: 158 75% 55%;
+    --primary-soft: 158 75% 42%;
+    --accent: 158 75% 42%;
+    --accent-foreground: 160 60% 6%;
+    --border: 158 75% 42%;
+    --ring: 158 75% 42%;
+
+    --gradient-hero: radial-gradient(ellipse at top, hsl(158 50% 12% / 0.9), hsl(160 60% 4%) 70%);
+    --gradient-gold: linear-gradient(135deg, hsl(158 75% 42%), hsl(150 70% 36%));
+    --gradient-radial: radial-gradient(circle at center, hsl(158 75% 42% / 0.08), transparent 70%);
+    --shadow-glow: 0 0 60px hsl(158 75% 42% / 0.20);
+    --shadow-glow-strong: 0 0 80px hsl(158 75% 42% / 0.38);
+  }
+
+  [data-theme="royal-purple"] {
+    --background: 265 50% 5%;
+    --card: 265 45% 11%;
+    --popover: 265 45% 8%;
+    --secondary: 265 40% 14%;
+    --muted: 265 35% 13%;
+    --input: 265 35% 18%;
+
+    --primary: 258 90% 66%;          /* #8b5cf6 */
+    --primary-foreground: 265 50% 8%;
+    --primary-glow: 258 90% 75%;
+    --primary-soft: 258 90% 66%;
+    --accent: 258 90% 66%;
+    --accent-foreground: 265 50% 8%;
+    --border: 258 90% 66%;
+    --ring: 258 90% 66%;
+
+    --gradient-hero: radial-gradient(ellipse at top, hsl(265 45% 14% / 0.9), hsl(265 50% 5%) 70%);
+    --gradient-gold: linear-gradient(135deg, hsl(258 90% 66%), hsl(270 80% 56%));
+    --gradient-radial: radial-gradient(circle at center, hsl(258 90% 66% / 0.10), transparent 70%);
+    --shadow-glow: 0 0 60px hsl(258 90% 66% / 0.22);
+    --shadow-glow-strong: 0 0 80px hsl(258 90% 66% / 0.40);
+  }
+
+  [data-theme="midnight-blue"] {
+    --background: 222 60% 4%;
+    --card: 222 55% 10%;
+    --popover: 222 55% 7%;
+    --secondary: 222 50% 13%;
+    --muted: 222 45% 12%;
+    --input: 222 45% 17%;
+
+    --primary: 199 92% 60%;          /* #38bdf8 */
+    --primary-foreground: 222 60% 8%;
+    --primary-glow: 199 92% 70%;
+    --primary-soft: 199 92% 60%;
+    --accent: 199 92% 60%;
+    --accent-foreground: 222 60% 8%;
+    --border: 199 92% 60%;
+    --ring: 199 92% 60%;
+
+    --gradient-hero: radial-gradient(ellipse at top, hsl(222 55% 13% / 0.9), hsl(222 60% 4%) 70%);
+    --gradient-gold: linear-gradient(135deg, hsl(199 92% 60%), hsl(210 90% 52%));
+    --gradient-radial: radial-gradient(circle at center, hsl(199 92% 60% / 0.10), transparent 70%);
+    --shadow-glow: 0 0 60px hsl(199 92% 60% / 0.22);
+    --shadow-glow-strong: 0 0 80px hsl(199 92% 60% / 0.40);
+  }
+
+  [data-theme="sunset-dark"] {
+    --background: 12 25% 4%;
+    --card: 12 22% 10%;
+    --popover: 12 22% 7%;
+    --secondary: 12 20% 13%;
+    --muted: 12 18% 12%;
+    --input: 12 18% 17%;
+
+    --primary: 18 95% 58%;           /* warm orange */
+    --primary-foreground: 12 25% 8%;
+    --primary-glow: 18 95% 68%;
+    --primary-soft: 18 95% 58%;
+    --accent: 18 95% 58%;
+    --accent-foreground: 12 25% 8%;
+    --border: 18 95% 58%;
+    --ring: 18 95% 58%;
+
+    --gradient-hero: radial-gradient(ellipse at top, hsl(12 22% 13% / 0.9), hsl(12 25% 4%) 70%);
+    --gradient-gold: linear-gradient(135deg, hsl(18 95% 58%), hsl(0 80% 52%));
+    --gradient-radial: radial-gradient(circle at center, hsl(18 95% 58% / 0.10), transparent 70%);
+    --shadow-glow: 0 0 60px hsl(18 95% 58% / 0.22);
+    --shadow-glow-strong: 0 0 80px hsl(18 95% 58% / 0.42);
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border) / 0.2);
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -20%, hsl(48 96% 53% / 0.08), transparent),
+      radial-gradient(ellipse 60% 40% at 50% 110%, hsl(48 96% 53% / 0.04), transparent);
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    letter-spacing: -0.01em;
+  }
+
+  .font-arabic {
+    font-family: 'Amiri', serif;
+  }
+
+  /* Selection */
+  ::selection {
+    background: hsl(var(--primary) / 0.3);
+    color: hsl(var(--foreground));
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: hsl(var(--background)); }
+  ::-webkit-scrollbar-thumb { background: hsl(var(--primary) / 0.25); border-radius: 10px; }
+  ::-webkit-scrollbar-thumb:hover { background: hsl(var(--primary) / 0.5); }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .bg-gradient-gold {
+    background: var(--gradient-gold);
+  }
+
+  .glow-gold {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .glow-gold-strong {
+    box-shadow: var(--shadow-glow-strong);
+  }
+
+  .border-gold {
+    border-color: hsl(var(--primary) / 0.25);
+  }
+
+  .border-gold-strong {
+    border-color: hsl(var(--primary) / 0.5);
+  }
+
+  .surface-card {
+    background: linear-gradient(145deg, hsl(var(--card) / 0.85), hsl(var(--card) / 0.55));
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--primary) / 0.15);
+  }
+
+  .hover-glow {
+    transition: var(--transition-smooth);
+  }
+  .hover-glow:hover {
+    box-shadow: var(--shadow-glow);
+    border-color: hsl(var(--primary) / 0.4);
+    transform: translateY(-2px);
+  }
+
+  .star {
+    position: absolute;
+    background: hsl(var(--primary));
+    border-radius: 50%;
+    box-shadow: 0 0 6px hsl(var(--primary) / 0.8);
+  }
+}
